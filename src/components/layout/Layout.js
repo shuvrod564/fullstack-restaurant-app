@@ -6,7 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { usePathname } from 'next/navigation';
 
-const Layout = ({children}) => {
+const Layout = ({propsChildren}) => {
     const pathname = usePathname(); 
     
   const [resMenu, setResMenu] = useState(false);
@@ -42,7 +42,7 @@ const Layout = ({children}) => {
 
  if (pathname == '/login') {
     return (
-        <>{children}</>
+        <>{propsChildren}</>
     )
  }
 
@@ -51,7 +51,7 @@ const Layout = ({children}) => {
         <SideMenu resMenu={resMenu} setResMenu={setResMenu} />
         <div className="2xl:pl-[280px] xl:pl-[250px] w-full pt-3 pb-4 lg:px-10  sm:px-5 px-3">
           <Header resMenu={resMenu} setResMenu={setResMenu} />
-          <>{children}</>
+          <>{propsChildren}</>
         </div>
         <ToastContainer />
     </main>

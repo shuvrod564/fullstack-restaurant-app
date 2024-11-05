@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
         className={`${inter.className} `}
       >
         
-        <Layout children={children} />
+        <Layout propsChildren={children} />
       </body>
     </html>
   );
