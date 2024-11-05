@@ -31,10 +31,14 @@ a:hover, button:hover { @apply transition-all duration-300 ease-in-out; backgrou
     @apply text-sm md:text-base font-semibold tracking-wide md:px-6 px-4 md:py-2.5 py-2 bg-primary text-white md:rounded-lg rounded-md inline-flex items-center justify-center gap-2.5 hover:bg-black
 }
 
-.input {
-    @apply w-full h-11 rounded-lg px-5 py-1 text-dark outline-none focus:outline-none
+.input, .select {
+    @apply w-full h-12 rounded-lg px-5 py-1 text-black outline-none focus:outline-none border border-slate-200
 }
+.select { @apply bg-white }
 .input.count__input { @apply h-8 md:h-11 px-1 sm:px-3 md:px-4 text-center md:text-left }
+
+input[type="radio"], input[type="checkbox"] { @apply w-5 h-5 border border-slate-300 rounded-full bg-transparent ; -webkit-apperence: none; } 
+input[type="checkbox"] { @apply rounded-lg }
 
 .hero__add__btn {
     @apply bg-primary text-white text-sm md:text-base lg:text-base 2xl:text-xl tracking-wide 2xl:h-14 lg:h-12 h-10 px-4 rounded-lg lg:rounded-xl font-semibold hover:bg-primary_light hover:text-white inline-flex items-center justify-center lg:justify-end gap-3
