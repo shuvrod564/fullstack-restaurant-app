@@ -2,20 +2,120 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* { font-family: "Inter", sans-serif!important;margin: 0%;padding: 0%;box-sizing: border-box; }
+html { overflow-x: hidden; }
+  
+body { @apply bg-[#f0f2f5] text-dark !text-sm lg:!text-[15px] 2xl:!text-base; }
+
+a:hover, button:hover { @apply transition-all duration-300 ease-in-out; background-color: #ffffff80; }
+
+.content__area { @apply md:bg-bg_grey md:rounded-xl md:p-5 pr-1 md:shadow-[-10px_10px_30px_rgba(96,113,175,0.1)] md:border border-white relative md:h-[calc(100vh-100px)] h-[calc(100vh-88px)] overflow-y-auto overflow-x-hidden }
+.content__area.dashboard { @apply bg-bg_grey rounded-xl p-5 shadow-[-10px_10px_30px_rgba(96,113,175,0.1)] md:border border-white relative md:h-[calc(100vh-100px)] h-[calc(100vh-88px)] overflow-y-auto overflow-x-hidden }
+.content__scroll { @apply  h-[calc(100vh-100px)] overflow-y-auto overflow-x-hidden pr-2 }
+.col { flex: 1 0 0%; }
+.input { @apply px-4 py-2 rounded-lg border border-bc w-full; }
+
+.complete__bg { background: linear-gradient(90deg, rgba(33, 184, 136, 0.2) -19.18%, rgba(241, 241, 241, 0.2) 44.47%), rgba(255, 255, 255, 0.54); }
+.order__bg { background: linear-gradient(90deg, rgba(49, 97, 180, 0.2) -19.18%, rgba(241, 241, 241, 0.2) 44.47%), rgba(255, 255, 255, 0.54); }
+
+
+@media(min-width:1280px) {
+    .ant-table-wrapper .ant-table { font-size: 16px !important; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+
+.col { flex: 1 0 0%; }
+
+.btn-primary {
+    @apply text-sm md:text-base font-semibold tracking-wide md:px-6 px-4 md:py-2.5 py-2 bg-primary text-white md:rounded-lg rounded-md inline-flex items-center justify-center gap-2.5 hover:bg-black
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.input {
+    @apply w-full h-11 rounded-lg px-5 py-1 text-dark outline-none focus:outline-none
 }
+.input.count__input { @apply h-8 md:h-11 px-1 sm:px-3 md:px-4 text-center md:text-left }
+
+.hero__add__btn {
+    @apply bg-primary text-white text-sm md:text-base lg:text-base 2xl:text-xl tracking-wide 2xl:h-14 lg:h-12 h-10 px-4 rounded-lg lg:rounded-xl font-semibold hover:bg-primary_light hover:text-white inline-flex items-center justify-center lg:justify-end gap-3
+}
+.hero__add__btn .icon {
+    @apply w-7 h-7 2xl:w-8 2xl:h-8 rounded-full inline-flex justify-center items-center;
+    background: linear-gradient(180deg, #187bcd 35%, #2a9df4 115%); 
+    box-shadow: inset 1px 4px 4px #2183cd;
+}
+
+.header__filter__box .ant-dropdown-open {
+    @apply !bg-primary text-white
+}
+
+
+.input__box {
+    @apply relative
+}
+.input__box input,
+.input__box select {
+    @apply w-full h-16 border border-bc rounded-lg px-5 pt-4 text-dark text-sm md:text-base font-normal focus:outline-none focus:border-primary
+}
+.input__box input::placeholder,
+.input__box select {
+    @apply font-light 
+}
+.input__box .label {
+    @apply absolute top-1.5 left-5 text-dark font-medium text-xs z-30
+}
+
+
+.outlined__input { @apply relative }
+.outlined__input input,
+.outlined__input textarea,
+.outlined__input select {
+    @apply w-full h-14 border border-bc rounded-lg px-4 pb-2 pt-2 text-black text-sm md:text-base font-normal focus:outline-none focus:border-primary
+}
+.outlined__input textarea { @apply h-auto min-h-24 }
+.outlined__input input::placeholder,
+.outlined__input select {
+    @apply font-light 
+}
+.outlined__input .label {
+    @apply absolute -top-3.5 left-3 text-slate-500 font-medium text-sm z-30 bg-white px-1 py-1
+}
+
+.error { @apply text-red-500 mt-1.5 text-sm }
+
+.table { @apply w-full text-left }
+.table thead th { @apply bg-slate-200 text-dark p-4 capitalize }
+.table td { @apply p-4 border-b border-slate-200 }
+
+/* --- Upload Box Global Style --- */
+.upload__box .ant-upload-select { @apply !w-full !bg-white  max-w-[180px] }
+
+.userTable .ant-table-cell-fix-right { @apply !px-2.5 sm:!px-4 }
+.ant-table-wrapper .ant-table-thead > tr > th { background: #ececec !important; }
+
+@media(min-width:992px) {
+    .lg-order-3 { order: 3; }
+    .lg-order-2 { order: 2; }
+    .lg-order-1 { order: 1; } 
+    .lg-hidden { @apply hidden}
+    .lg__order__id { @apply absolute top-5 -left-[1px] !pl-6 !rounded-tl-none !rounded-bl-none }
+    .lg__orderid__pt { @apply pt-24 }
+    .info__filter__box { @apply mb-4 }
+    .edit__btn__box { @apply !flex-col }
+}
+
+@media(max-width:991px) {
+    .info__filter__box { @apply h-0 opacity-0 transition-all duration-300 }
+    .info__filter__box.show { @apply h-auto opacity-100 mb-3 }
+    .hero__add__btn .icon { @apply hidden }
+    .editpage__btn__box { @apply flex gap-3 justify-between }
+    .lg__auto__h { @apply !h-auto }
+}
+
+@media(max-width:767px) {
+    .md__product__note__col, .md__settings { @apply hidden } 
+    .md__product__note__col.show, .md__settings.show { @apply block } 
+    .product__feild {  overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 1;display: -webkit-box;-webkit-box-orient: vertical;white-space: normal; }
+
+}
+ 
