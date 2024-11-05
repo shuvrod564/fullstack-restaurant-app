@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { usePathname } from 'next/navigation';
 
 const Layout = ({children}) => {
-    const router = usePathname(); 
+    const pathname = usePathname(); 
     
   const [resMenu, setResMenu] = useState(false);
 //   console.log(resMenu);
@@ -40,7 +40,7 @@ const Layout = ({children}) => {
     }
  }, []);
 
- if (router == '/login') {
+ if (pathname == '/login') {
     return (
         <>{children}</>
     )
