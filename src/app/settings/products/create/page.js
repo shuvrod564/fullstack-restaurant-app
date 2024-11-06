@@ -6,7 +6,7 @@ import ProductForm from './ProductForm'
 
 async function getData (){
     try {
-        const res = await axios.get(`${process.env.DOMAIN}/api/settings/product/createdata`);
+        const res = await axios.get(`${process.env.DOMAIN}/api/settings/product/createdata`, {cache: 'no-store'});
         return res.data.data; 
     } catch (error) {
         console.log('supplier list fetch error: ', error);
