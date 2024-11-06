@@ -19,8 +19,8 @@ export async function GET() {
 
   } catch (error) {
     return NextResponse.json({
-      message: "Invalid request",
-      status: 400,
+      message: "Invalid request: "+error.message,
+      status: 500,
     })
   }
 }

@@ -8,7 +8,7 @@ import React from 'react'
 
 async function getData() {
   try {
-    const res = await axios.get(`${process.env.DOMAIN}/api/settings/users/list`);
+    const res = await axios.get(`${process.env.DOMAIN}/api/settings/users/list`, {cache: 'no-store'});
     return res.data.data;
   } catch (error) {
     console.log(error.message);
@@ -36,11 +36,11 @@ const page = async () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
-            <tr key={user._id}>
-              <td>{user.id}</td>
-              <td>{user.username}</td>
-              <td>{user.email}</td>
+          {users?.map((user) => (
+            <tr key={user?._id}>
+              <td>{user?.id}</td>
+              <td>{user?.username}</td>
+              <td>{user?.email}</td>
               <td>
                 <div className="flex gap-3"> 
                   <ActionButton icon={<EditIcon className="mx-auto" />} label="" btnType="sm" link="link" url={`/settings/users/${user._id}`} />
