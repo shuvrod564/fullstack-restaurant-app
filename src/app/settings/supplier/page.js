@@ -14,7 +14,7 @@ export const metadata = {
 
 async function getData(params) {
     try {
-        const res = await axios.get(`${process.env.DOMAIN}/api/settings/supplier`);
+        const res = await axios.get(`${process.env.DOMAIN}/api/settings/supplier`, {cache: 'no-store'});
         return res.data.data;
     } catch (error) {
         console.log(error, 'Error for supplier fetch');

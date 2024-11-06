@@ -43,7 +43,7 @@ const page = async () => {
               <td>{user?.email}</td>
               <td>
                 <div className="flex gap-3"> 
-                  <ActionButton icon={<EditIcon className="mx-auto" />} label="" btnType="sm" link="link" url={`/settings/users/${user._id}`} />
+                  <ActionButton icon={<EditIcon className="mx-auto" />} label="" btnType="sm" link="link" url={`/settings/users/${user?._id}`} />
                   <ActionButton icon={<DeleteIcon className="mx-auto" />} label="" btnType="sm" />
                 </div>
               </td>

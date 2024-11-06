@@ -6,7 +6,7 @@ export const metadata = { title: "Product Management" }
 
 async function getData(){
     try {
-        const res = await axios.get(`${process.env.DOMAIN}/api/settings/product`);
+        const res = await axios.get(`${process.env.DOMAIN}/api/settings/product`, {cache: 'no-store'});
         return res.data.data;
     } catch (error) {
         console.log(error, 'Error for product fetch');
