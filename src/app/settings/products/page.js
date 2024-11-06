@@ -41,18 +41,18 @@ const page = async () => {
                         </tr> 
                     </thead>
                     <tbody> 
-                        {data.map((product, index) => (
+                        {data?.map((product, index) => (
                             <tr key={index}>
                                 <td>{index + 1}</td> 
                                 <td> </td> 
-                                <td className="capitalize">{product.title}</td> 
-                                <td>{product.barcode}</td> 
-                                <td>{product.category}</td> 
-                                <td>{product.purchase_unit}</td> 
+                                <td className="capitalize">{product?.title}</td> 
+                                <td>{product?.barcode}</td> 
+                                <td>{product?.category}</td> 
+                                <td>{product?.purchase_unit}</td> 
                                 <td> 
-                                    <span className="text-primary font-medium">{product.price}$</span>
+                                    <span className="text-primary font-medium">{product?.price}$</span>
                                 </td> 
-                                <td className="capitalize">{(product.supplier).slice(0,1)}</td> 
+                                <td className="capitalize">{(product?.supplier).slice(0,1)}</td> 
                                 <td></td> 
                             </tr>
                         ))}

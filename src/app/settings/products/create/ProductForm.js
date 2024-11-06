@@ -240,17 +240,17 @@ const ProductForm = ({fetchedData}) => {
                             <div className="flex flex-col gap-1">
                                 {
                                     fetchedData?.map((supplier)=>(
-                                        <div key={supplier._id} className='flex items-center gap-2'>
+                                        <div key={supplier?._id} className='flex items-center gap-2'>
                                             <input
                                                 type='checkbox'
                                                 {...register("supplier",
                                                     { required: true }
                                                 )}
                                                 className="input"
-                                                id={supplier._id}
-                                                value={supplier.name}
+                                                id={supplier?._id}
+                                                value={supplier?.name}
                                             />
-                                            <label htmlFor={supplier._id}>{supplier.name}</label>
+                                            <label htmlFor={supplier?._id}>{supplier?.name}</label>
                                         </div> 
                                     ))
                                 } 

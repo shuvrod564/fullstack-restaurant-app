@@ -45,16 +45,16 @@ const page = async () => {
             <tbody>
                 {
                     data?.map((item, index)=> (
-                        <tr key={item._id}>
+                        <tr key={item?._id}>
                             <td>{index+1}</td>
-                            <td>{item.name}</td>
-                            <td>{item.email}</td>
-                            <td>{item.phone}</td>
-                            <td>{item.address}</td>
+                            <td>{item?.name}</td>
+                            <td>{item?.email}</td>
+                            <td>{item?.phone}</td>
+                            <td>{item?.address}</td>
                             <td>
                                 <div className="flex gap-3"> 
-                                    <ActionButton icon={<EditIcon className="mx-auto" />} label="" btnType="sm" link="link" url={`/settings/supplier/${item._id}`} />
-                                    <DeleteRecord id={item._id} />
+                                    <ActionButton icon={<EditIcon className="mx-auto" />} label="" btnType="sm" link="link" url={`/settings/supplier/${item?._id}`} />
+                                    <DeleteRecord id={item?._id} />
                                 </div>
                             </td>
                         </tr>
