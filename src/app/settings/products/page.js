@@ -14,8 +14,9 @@ async function getData(){
 }
 
 const page = async () => {
-    const data = await getData();
-    // console.log(data);
+    const fetchdata = await fetch(`${process.env.DOMAIN}/api/settings/product`);
+    const data = await fetchdata.json();    
+    console.log(data);
 
 
     return (
@@ -41,7 +42,7 @@ const page = async () => {
                         </tr> 
                     </thead>
                     <tbody> 
-                        {data?.map((product, index) => (
+                        {data.data?.map((product, index) => (
                             <tr key={index}>
                                 <td>{index + 1}</td> 
                                 <td> </td> 
