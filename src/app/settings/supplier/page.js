@@ -24,7 +24,7 @@ export const metadata = {
 const page = async () => {
     const fetchdata = await fetch(`${process.env.DOMAIN}/api/settings/supplier`);
     const data = await fetchdata.json();
-    console.log(data);
+    // console.log(data);
      
     
   return (
