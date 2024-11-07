@@ -12,18 +12,20 @@ export const metadata = {
     description: "Supplier List",
 }
 
-async function getData(params) {
-    try {
-        const res = await axios.get(`${process.env.DOMAIN}/api/settings/supplier`, {cache: 'no-store'});
-        return res.data.data;
-    } catch (error) {
-        console.log(error, 'Error for supplier fetch');
-    }
-}
+// async function getData(params) {
+//     try {
+//         const res = await axios.get(`${process.env.DOMAIN}/api/settings/supplier`, {cache: 'no-store'});
+//         return res.data.data;
+//     } catch (error) {
+//         console.log(error, 'Error for supplier fetch');
+//     }
+// }
 
 const page = async () => {
-    const data = await getData();
-    // console.log(data);
+    const fetchdata = await fetch(`${process.env.DOMAIN}/api/settings/supplier`);
+    const data = await fetchdata.json();
+    console.log(data);
+     
     
   return (
     <div className='content__area'>
@@ -44,7 +46,7 @@ const page = async () => {
             </thead>
             <tbody>
                 {
-                    data?.map((item, index)=> (
+                    data.data.map((item, index)=> (
                         <tr key={item?._id}>
                             <td>{index+1}</td>
                             <td>{item?.name}</td>
@@ -62,7 +64,7 @@ const page = async () => {
                 }
                 <tr>
                     {
-                        data?.length === 0 && <td colSpan="5" className="text-center">No supplier found</td>
+                        data.data.length === 0 && <td colSpan="5" className="text-center">No supplier found</td>
                     }
                 </tr>
             </tbody>
